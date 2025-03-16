@@ -11,7 +11,7 @@ const lecturesSlice = createSlice({
       state.list.push(action.payload);
     },
     setLoading(state, action) {
-      state.loading = action.payload; // Added for consistency
+      state.loading = action.payload;
     },
     setError(state, action) {
       state.error = action.payload;

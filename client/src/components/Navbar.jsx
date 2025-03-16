@@ -1,28 +1,49 @@
 import React from 'react'
+import ProfileInfo from './ProfileInfo'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
-const Navbar = () => {
+const Navbar = ({userInfo}) => {
+    const navigate = useNavigate();
+
+    const onLogout = () =>{
+        localStorage.clear();
+        navigate("/");
+    }
+    
     return (
-        <nav className="bg-white shadow-md">
-            <div className="max-w-7xl mx-auto px-4">
-                <div className="flex justify-between items-center h-20">
-                    <div className="px-6 py-3 cursor-pointer">
+        <nav className="bg-green-600 text-white shadow-md">
+            <div className="max-w-7xl mx-auto px-4 py-5 ">
+                <div className="flex justify-between items-center">
+                    <div className="cursor-pointer">
                         <h1 className="text-xl font-medium">
                             Elearning
                         </h1>
                     </div>
-                    <div className="hidden md:flex space-x-1">
-                        <a className="px-6 py-3 text-gray-700 cursor-pointer">
+                    <div className="hidden md:flex space-x-1 gap-8 items-center">
+                        <a className="text-white cursor-pointer">
                             Home
                         </a>
-                        <a className="px-6 py-3 text-gray-700 cursor-pointer">
+                        <a className="text-white cursor-pointer">
                             Work
                         </a>
-                        <a className="px-6 py-3 text-gray-700 cursor-pointer">
+                        <a className="text-white cursor-pointer">
                             About
                         </a>
-                        <a href="/" className="px-6 py-3 text-gray-700 border rounded">
-                            Login
-                        </a>
+                        {userInfo ? (
+                            <ProfileInfo userInfo={userInfo} onLogout={onLogout} />
+                        ) : (
+                            <a
+                                href="/login"
+                                className="px-7 py-2 bg-white rounded-full text-green-600 outline-none"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    navigate('/');
+                                }}
+                            >
+                                Login
+                            </a>
+                        )}
                     </div>
                     <div className="md:hidden">
                         <button className="transition-transform duration-300 hover:scale-110">

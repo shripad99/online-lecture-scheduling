@@ -42,13 +42,13 @@ const Register = () => {
 
   return (
     <div className="flex items-center justify-center mt-16">
-      <div className="w-96 border rounded bg-white px-7 py-10 drop-shadow-md">
+      <div className="w-96 border border-gray-400 rounded bg-white px-7 py-10 drop-shadow-md">
         <form onSubmit={handleSubmit}>
           <h4 className="text-2xl mb-7">Sign Up</h4>
           <input
             type="text"
             placeholder="Username"
-            className="w-full text-sm bg-transparent border-[1.5px] px-5 py-3 rounded mb-4 outline-none"
+            className="w-full text-sm bg-transparent border-[1.5px] border-gray-400 px-5 py-3 rounded mb-4 outline-none"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -56,7 +56,7 @@ const Register = () => {
           <input
             type="email"
             placeholder="Email"
-            className="w-full text-sm bg-transparent border-[1.5px] px-5 py-3 rounded mb-4 outline-none"
+            className="w-full text-sm bg-transparent border-[1.5px] border-gray-400 px-5 py-3 rounded mb-4 outline-none"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -65,7 +65,7 @@ const Register = () => {
             <select
               value={role}
               onChange={handleRoleChange}
-              className="w-full text-sm bg-transparent border-[1.5px] px-5 py-3 rounded mb-4 outline-none appearance-none pr-10"
+              className="w-full text-sm bg-transparent border-[1.5px] border-gray-400 px-5 py-3 rounded mb-4 outline-none appearance-none pr-10"
               required
             >
               <option value="" disabled>Select Role</option>
@@ -85,7 +85,7 @@ const Register = () => {
           <input
             type="password"
             placeholder="Password"
-            className="w-full text-sm bg-transparent border-[1.5px] px-5 py-3 rounded mb-4 outline-none"
+            className="w-full text-sm bg-transparent border-[1.5px] border-gray-400 px-5 py-3 rounded mb-4 outline-none"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -93,7 +93,7 @@ const Register = () => {
           {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
           <button
             type="submit"
-            className="w-full text-sm text-white p-2 rounded my-1 bg-blue-500"
+            className="w-full text-sm text-white p-2 rounded my-1 bg-green-600"
           >
             Create Account
           </button>

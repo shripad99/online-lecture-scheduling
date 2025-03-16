@@ -26,10 +26,9 @@ const AddCourseForm = () => {
   };
 
   return (
-    <div className="bg-gray-100 py-10">
+    <div>
       <div className="container mx-auto px-4">
-        <div className="bg-white shadow-lg rounded-lg p-6 max-w-md mx-auto">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Add Course</h2>
+        <div className="bg-white rounded-lg max-w-md mx-auto">
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <input

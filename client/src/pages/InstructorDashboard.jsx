@@ -33,8 +33,7 @@ const InstructorDashboard = () => {
   return (
     <div className="min-h-screen py-10">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-normal text-center text-gray-800 mb-8">Instructor Dashboard</h1>
-        <div className="bg-white shadow-lg rounded-lg p-6">
+        <div className="bg-white shadow-lg rounded-lg px-6 py-5">
           {loading && !lectures.length ? (
             <p className="text-center text-gray-500">Loading...</p>
           ) : error ? (
@@ -42,10 +41,10 @@ const InstructorDashboard = () => {
           ) : (
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-blue-500 text-white">
-                  <th className="py-3 px-4 border-b">Course Name</th>
-                  <th className="py-3 px-4 border-b">Date</th>
-                  <th className="py-3 px-4 border-b">Details</th>
+                <tr className="bg-gray-50 text-md">
+                  <th className="py-3 px-4 border-b border-gray-300 cursor-pointer hover:bg-gray-100 font-light">Course Name</th>
+                  <th className="py-3 px-4 border-b border-gray-300 cursor-pointer hover:bg-gray-100 font-light">Date</th>
+                  <th className="py-3 px-4 border-b border-gray-300 cursor-pointer hover:bg-gray-100 font-light">Details</th>
                 </tr>
               </thead>
               <tbody>
@@ -55,15 +54,15 @@ const InstructorDashboard = () => {
                       key={lecture._id}
                       className="hover:bg-gray-50 transition-colors duration-200"
                     >
-                      <td className="py-3 px-4 border-b">
+                      <td className="py-3 px-4 font-light">
                         {lecture.courseId && lecture.courseId.name
                           ? lecture.courseId.name
                           : lecture.courseId || 'N/A'}
                       </td>
-                      <td className="py-3 px-4 border-b">
+                      <td className="py-3 px-4 font-light">
                         {new Date(lecture.date).toLocaleDateString()}
                       </td>
-                      <td className="py-3 px-4 border-b">{lecture.details || 'N/A'}</td>
+                      <td className="py-3 px-4 font-light">{lecture.details || 'N/A'}</td>
                     </tr>
                   ))
                 ) : (

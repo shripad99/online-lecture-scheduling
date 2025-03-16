@@ -24,10 +24,10 @@ const CourseList = () => {
   }, [dispatch]);
 
   return (
-    <div className="bg-gray-100 py-10">
+    <div>
       <div className="container mx-auto px-4">
-        <div className="bg-white shadow-lg rounded-lg p-6 max-w-2xl mx-auto">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Course List</h2>
+        <div className="bg-white shadow-lg rounded-lg p-6 max-w-full mx-auto">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-left">Course List</h2>
           {loading && !courses.length ? (
             <p className="text-center text-gray-500">Loading...</p>
           ) : error ? (

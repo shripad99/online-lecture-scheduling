@@ -25,20 +25,7 @@ const InstructorList = () => {
     fetchInstructors();
   }, [dispatch]);
 
-  const handleAddInstructor = async (e) => {
-    e.preventDefault();
-    dispatch(setLoading(true));
-    try {
-      const response = await axios.post('http://localhost:3000/instructor', newInstructor);
-      dispatch(addInstructor(response.data));
-      setNewInstructor({ name: '', email: '' });
-      dispatch(setError(null));
-    } catch (err) {
-      dispatch(setError(err.response?.data?.error || 'Failed to add instructor'));
-    } finally {
-      dispatch(setLoading(false));
-    }
-  };
+  
 
   const handleEditInstructor = (instructor) => {
     setEditInstructor({ ...instructor });
@@ -61,43 +48,10 @@ const InstructorList = () => {
   };
 
   return (
-    <div className="bg-gray-100 py-10">
+    <div>
       <div className="container mx-auto px-4">
-        <div className="bg-white shadow-lg rounded-lg p-6 max-w-2xl mx-auto">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Instructors</h2>
-
-          {/* Add Instructor Form */}
-          <form onSubmit={handleAddInstructor} className="mb-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Name"
-                className="w-full text-sm border-[1.5px] px-4 py-2 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
-                value={newInstructor.name}
-                onChange={(e) => setNewInstructor({ ...newInstructor, name: e.target.value })}
-                required
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full text-sm border-[1.5px] px-4 py-2 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
-                value={newInstructor.email}
-                onChange={(e) => setNewInstructor({ ...newInstructor, email: e.target.value })}
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className={`w-full mt-4 text-sm text-white p-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition duration-200 ${
-                loading ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-              disabled={loading}
-            >
-              {loading ? 'Adding...' : 'Add Instructor'}
-            </button>
-            {error && <p className="text-red-500 text-sm mt-2 text-center">{error}</p>}
-          </form>
-
+        <div className="bg-white shadow-lg rounded-lg p-6 mx-auto max-w-full">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-left">Instructors</h2>
           {/* Instructor List */}
           {loading && !instructors.length ? (
             <p className="text-center text-gray-500">Loading...</p>
