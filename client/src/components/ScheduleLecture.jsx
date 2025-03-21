@@ -70,7 +70,7 @@ const ScheduleLecture = () => {
                 <option value="">Select Instructor</option>
                 {instructors.map((inst) => (
                   <option key={inst._id} value={inst._id}>
-                    {inst.name}
+                    {inst.username}
                   </option>
                 ))}
               </select>

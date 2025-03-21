@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../redux/authSlice';
 import axios from 'axios';
 
 const Login = () => {
@@ -7,6 +9,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.auth);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,6 +21,9 @@ const Login = () => {
       // Store token and user data in localStorage
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
+
+      // Dispatch login action to update Redux state
+      dispatch(login.fulfilled({ token, user }));
 
       // Redirect based on role
       if (user.role === 'administrator') {
@@ -51,8 +58,8 @@ const Login = () => {
             required
           />
           {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
-          <button type="submit" className="w-full text-sm text-white p-2 rounded my-1 bg-green-600">
-            Login
+          <button type="submit" className="w-full text-sm text-white p-2 rounded my-1 bg-green-600" disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
           </button>
           <p className="text-sm text-center mt-4">
             Not registered yet?{' '}

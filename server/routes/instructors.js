@@ -1,13 +1,14 @@
 const router = require("express").Router()
 const Instructor = require("../models/instructor");
+const User = require('../models/user');
 
 // Get all instructors
 router.get('/', async(req, res) =>{
-    try{
-        const instructors  = await Instructor.find();
+    try {
+        const instructors = await User.find({ role: 'instructor' }, 'username email');
         res.json(instructors);
-    }catch(err){
-        res.status(500).json({error: 'Server error'})
+    } catch (err) {
+        res.status(500).json({ message: err.message });
     }
 })
 

@@ -68,7 +68,7 @@ const InstructorList = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <input
                             type="text"
-                            value={editInstructor.name}
+                            value={editInstructor.username}
                             onChange={(e) => setEditInstructor({ ...editInstructor, name: e.target.value })}
                             className="w-full text-sm border-[1.5px] px-4 py-2 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             required
@@ -103,7 +103,7 @@ const InstructorList = () => {
                     ) : (
                       <>
                         <span>
-                          {instructor.name} - {instructor.email}
+                          {instructor.username} - {instructor.email}
                         </span>
                         <button
                           onClick={() => handleEditInstructor(instructor)}
