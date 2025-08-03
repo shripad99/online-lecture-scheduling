@@ -11,7 +11,7 @@ const CourseList = () => {
     const fetchCourses = async () => {
       dispatch(setLoading(true));
       try {
-        const response = await axios.get('http://localhost:3000/course');
+        const response = await axios.get('https://online-lecture-scheduling-backend.onrender.com/course');
         dispatch(setCourses(response.data));
         dispatch(setError(null));
       } catch (err) {
