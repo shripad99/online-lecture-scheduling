@@ -15,7 +15,7 @@ const AddCourseForm = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3000/course', courseData); // Updated endpoint to match your backend
+      const response = await axios.post('https://online-lecture-scheduling-backend.onrender.com/course', courseData); // Updated endpoint to match your backend
       dispatch(addCourse(response.data));
       setCourseData({ name: '', level: '', description: '', image: '' });
     } catch (err) {
