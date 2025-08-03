@@ -13,7 +13,7 @@ const InstructorList = () => {
     const fetchInstructors = async () => {
       dispatch(setLoading(true));
       try {
-        const response = await axios.get('http://localhost:3000/instructor');
+        const response = await axios.get('https://online-lecture-scheduling-backend.onrender.com/instructor');
         dispatch(setInstructors(response.data));
         dispatch(setError(null));
       } catch (err) {
@@ -36,7 +36,7 @@ const InstructorList = () => {
     if (!editInstructor) return;
     dispatch(setLoading(true));
     try {
-      const response = await axios.put(`http://localhost:3000/instructor/${editInstructor._id}`, editInstructor);
+      const response = await axios.put(`https://online-lecture-scheduling-backend.onrender.com/instructor/${editInstructor._id}`, editInstructor);
       dispatch(updateInstructor(response.data));
       setEditInstructor(null);
       dispatch(setError(null));
