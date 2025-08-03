@@ -14,7 +14,7 @@ const InstructorDashboard = () => {
       dispatch(setLoading(true));
       console.log('Fetching lectures for instructorId:', id); // Debug log
       try {
-        const response = await axios.get(`http://localhost:3000/lecture`, {
+        const response = await axios.get(`https://online-lecture-scheduling-backend.onrender.com/lecture`, {
           params: { instructorId: id }, // Use query parameter
         });
         console.log('API Response:', response.data); // Debug log
