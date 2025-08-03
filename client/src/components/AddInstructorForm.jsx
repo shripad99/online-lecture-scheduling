@@ -12,7 +12,7 @@ const AddInstructorForm = ({ onInstructorAdded }) => {
     setError(null);
 
     try {
-      const response = await axios.post('http://localhost:3000/instructor', newInstructor);
+      const response = await axios.post('https://online-lecture-scheduling-backend.onrender.com/instructor', newInstructor);
       setNewInstructor({ name: '', email: '' });
       if (onInstructorAdded) onInstructorAdded(response.data); // Callback to refresh list
     } catch (err) {
