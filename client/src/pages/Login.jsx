@@ -15,7 +15,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/auth/login', { username, password });
+      const response = await axios.post('https://online-lecture-scheduling-backend.onrender.com/auth/login', { username, password });
       const { token, user } = response.data;
 
       // Store token and user data in localStorage
