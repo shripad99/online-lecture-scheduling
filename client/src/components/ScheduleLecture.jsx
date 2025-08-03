@@ -17,7 +17,7 @@ const ScheduleLecture = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3000/lecture', lectureData);
+      const response = await axios.post('https://online-lecture-scheduling-backend.onrender.com/lecture', lectureData);
       dispatch(addLecture(response.data));
       console.log("Lecture scheduled", response.data);
       setLectureData({ courseId: '', instructorId: '', date: '', details: '' });
