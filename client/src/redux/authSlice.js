@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const login = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
     try {
-        const response = await axios.post('http://localhost:3000/auth/login', credentials);
+        const response = await axios.post('https://online-lecture-scheduling-backend.onrender.com/auth/login', credentials);
         return response.data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data);
