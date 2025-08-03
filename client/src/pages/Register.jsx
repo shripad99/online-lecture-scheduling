@@ -17,7 +17,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/auth/register', {
+      const response = await axios.post('https://online-lecture-scheduling-backend.onrender.com/auth/register', {
         username,
         email,
         role,
